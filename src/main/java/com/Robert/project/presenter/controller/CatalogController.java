@@ -1,6 +1,7 @@
-package com.Robert.project.controller;
+package com.Robert.project.presenter.controller;
 
 import com.Robert.project.model.Product;
+import com.Robert.project.model.Store;
 import com.Robert.project.presenter.CatalogPresenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,29 +35,51 @@ public class CatalogController {
     }
 
     @GetMapping("/products")
-    public void displayAllProducts() {
-        presenter.displayAllProducts();
+    public List<Product> displayAllProducts() {
+        return presenter.displayAllProducts();
+    }
+
+    // Endpointuri pentru magazine
+    @PostMapping("/stores")
+    public void addStore(@RequestBody Store store) {
+        presenter.addStore(store);
+    }
+
+    @PutMapping("/stores/{storeId}")
+    public void updateStore(@PathVariable Integer storeId, @RequestBody Store store) {
+        store.setStoreId(storeId);  // Setează ID-ul magazinului pentru actualizare
+        presenter.updateStore(store);
+    }
+
+    @DeleteMapping("/stores/{storeId}")
+    public void deleteStore(@PathVariable Integer storeId) {
+        presenter.deleteStore(storeId);
     }
 
     @GetMapping("/stores")
-    public void displayAllStores() {
-        presenter.displayAllStores();
+    public List<Store> displayAllStores() {
+        return presenter.displayAllStores();
     }
 
     @GetMapping("/products/filter")
-    public void filterProductsByAvailability(
+    public List<Product> filterProductsByAvailability(
             @RequestParam Integer storeId,
             @RequestParam Boolean available) {
-        presenter.filterProductsByAvailability(storeId, available);
+        return presenter.filterProductsByAvailability(storeId, available);
     }
 
     @GetMapping("/products/search")
-    public void searchProductByName(@RequestParam String name) {
-        presenter.searchProductByName(name);
+    public List<Product> searchProductByName(@RequestParam String name) {
+        return presenter.searchProductByName(name);
     }
 
     @GetMapping("/export-csv/{storeId}")
     public void exportOutOfStockProducts(@PathVariable Integer storeId) {
         presenter.exportOutOfStockProducts(storeId);
+    }
+
+    @GetMapping("/export-doc/{storeId}")
+    public void exportOutOfStockProductsToDoc(@PathVariable Integer storeId) {
+        presenter.exportOutOfStockProductsToDoc(storeId);
     }
 }

@@ -11,4 +11,10 @@ import java.util.List;
 public interface InventoryRepository extends JpaRepository<Inventory, InventoryId> {
 
     List<Inventory> findByStoreStoreId(Integer storeId);
+
+    // Find inventory by store ID and availability
+    List<Inventory> findByStoreStoreIdAndAvailable(Integer storeId, Boolean available);
+
+    // Find inventory by store ID and quantity
+    List<Inventory> findByStoreStoreIdAndQuantity(Integer storeId, Integer quantity);
 }

@@ -40,3 +40,21 @@ CREATE TABLE VariantaProdus (
                                 descriere TEXT,
                                 FOREIGN KEY (id_produs) REFERENCES Produs(id_produs) ON DELETE CASCADE
 );
+
+-- Inserare date test Produs
+INSERT INTO Produs (denumire, producator, valabilitate, categorie) VALUES
+                                                                       ('Crema hidratantă', 'Nivea', '2025-12-31', 'Îngrijire ten'),
+                                                                       ('Ruj mat', 'Maybelline', '2026-06-30', 'Machiaj');
+
+-- Inserare date test Stoc
+INSERT INTO Stoc (id_magazin, id_produs, disponibilitate, cantitate) VALUES
+                                                                         (1, 1, TRUE, 50),
+                                                                         (2, 1, TRUE, 30),
+                                                                         (1, 2, FALSE, 0);
+
+-- Inserare date test VarianteProdus
+INSERT INTO VariantaProdus (id_produs, culoare, marime, imagine, descriere) VALUES
+                                                                                (2, 'Roșu', 'Normal', 'imagine1.jpg', 'Ruj roșu intens, mat'),
+                                                                                (2, 'Roz', 'Mini', 'imagine2.jpg', 'Ruj roz pal, mat');
+
+
