@@ -1,0 +1,88 @@
+/* Fundal general (dacă folosim un layout de tip root) */
+.root {
+    -fx-background-color: #f2f2f2;
+}
+
+/* Stil pentru TableView în general */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-table-cell-border-color: #dcdcdc;
+    -fx-table-header-border-color: #dcdcdc;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 5, 0, 0, 0);
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    /* Permite scroll orizontal dacă textul e prea mare */
+    -fx-column-resize-policy: unconstrained;
+}
+
+/* Antetul coloanelor */
+.table-column-header {
+    -fx-background-color: linear-gradient(to bottom, #ececec, #dcdcdc);
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-alignment: CENTER; /* text centrat */
+}
+
+/* Celulele din tabel */
+.table-cell {
+    -fx-padding: 10 20 10 20; /* mai mult spațiu în celulă */
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+/* Alternarea culorilor pe rânduri */
+.table-row-cell:even {
+    -fx-background-color: #fafafa;
+}
+.table-row-cell:odd {
+    -fx-background-color: #ffffff;
+}
+
+/* Efect de hover la trecerea mouse-ului peste un rând */
+.table-row-cell:hover {
+    -fx-background-color: #e0f2f1; /* un verde pal */
+}
+
+/* Rând selectat */
+.table-row-cell:filled:selected {
+    -fx-background-color: #b2dfdb; /* un verde mai închis */
+    -fx-text-fill: #000000;
+}
+
+/* Stil pentru butoane */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #4caf50, #2e7d32);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 8 16 8 16;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-cursor: hand; /* cursor de mână la hover */
+}
+
+/* Buton la hover */
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #66bb6a, #388e3c);
+}
+
+/* Buton la click (pressed) */
+.button:pressed {
+    -fx-background-color: #2e7d32;
+}
+
+/* Label-urile generale */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 5 0;
+}
+
+/* Label-urile care conțin mesaje (dacă vrei un stil special) */
+.message-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #444444;
+    -fx-font-style: italic;
+    -fx-padding: 10;
+}
